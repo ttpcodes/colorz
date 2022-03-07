@@ -102,6 +102,8 @@ def colorz(fd, n=DEFAULT_NUM_COLORS, min_v=DEFAULT_MINV, max_v=DEFAULT_MAXV,
     red, yellow, green, cyan, blue, magenta
     """
     img = Image.open(fd)
+    if img.is_animated:
+        img.seek(1)
     img.thumbnail(THUMB_SIZE)
 
     obs = get_colors(img)
